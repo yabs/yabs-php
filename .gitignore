@@ -1,9 +1,15 @@
+# Cloud9 git repo
 .c9*
 
+# Cloud9 settings
 .settings
 
+# Super secret config files
 include/config/sql.php
 
+
+# admin.php is outdated by panel.php
+# profile.php is an unfinished redesign of user.php
 www/admin.php
 www/profile.php
 www/res/css/admin.css
