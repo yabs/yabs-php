@@ -1,0 +1,12 @@
+.c9*
+
+.settings
+
+include/config/sql.php
+
+www/admin.php
+www/profile.php
+www/res/css/admin.css
+www/res/css/profile.css
+www/res/js/admin.js
+www/res/js/profile.js

@@ -1,0 +1,298 @@
+body { background-image: url('/res/img/texture.png'); height: 100%; }
+
+#left-container {
+    position: fixed;
+    padding-top: 10px;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    max-height: 100%;
+    width: 175px;
+    color: #ddd;
+    background-color: #1e1e1e;
+    box-shadow: 0 1px 16px #222;
+    opacity: 0.8;
+    text-align: center;
+}
+
+hr { width: 96%; height:0; border-bottom: 1px solid #444; }
+
+#login-button,
+#signup-button,
+#login-username,
+#login-password,
+#login-status {
+    max-width: 140px;
+    min-width: 140px;
+    margin-top: 2px;
+    
+    max-height: 22px;
+    min-height: 22px;
+    
+    vertical-align: top;
+    cursor: pointer;
+    
+    font-family: Arial;
+    font-size: 14px;
+    
+    border:1px solid #ccc;
+    color: #eee;
+    
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;
+    
+    box-shadow: 0 1px 16px #222;
+}
+
+#login-button,
+#signup-button {
+    vertical-align: middle;
+    height: 40px;
+    background-color: #4c4c4c;
+}
+
+#signup-button { margin-top: 4px; }
+
+#login-button:hover, #signup-button:hover  { background-color: #5a5a5a; }
+#login-button:active,#signup-button:active { background-color: #1a1a1a; }
+
+#login-username,
+#login-password {
+    padding-left: 5px;
+    background-color: #2d2d2d;
+}
+
+#login-username:hover,
+#login-password:hover { background-color: #3e3e3e; }
+        
+#login-username:focus,
+#login-password:focus { background-color: #1a1a1a; }
+
+#login-status {
+    cursor: default;
+    text-align: center;
+    background-color: #1a1a1a;
+}
+
+#header {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 18px;
+    text-align: center;
+    color: #ddd;
+    text-decoration: none;
+}
+
+#header:hover { color: #fff; }
+#user-container {
+    position: relative;
+    
+    margin-left: 25px;
+    width: 125px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    text-align: center;
+    
+    height: 150px;
+}
+#user-picture {
+    position: absolute;
+    
+    top: 25px;
+    left: 0;
+    
+    background-image: url('/res/img/placeholder-profile.png');
+    
+    height: 125px;
+    width: 125px;
+    
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;
+    
+    opacity: 1.0;
+}
+
+.badge-table {
+    margin-left: 175px;
+    margin-top: 10px;
+    
+    border-spacing: 0; 
+    border-collapse: collapse;
+}
+
+.badge-header {
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 23px;
+    text-align: left;
+}
+
+.badge-table .icons { position: relative; }
+
+.badge-table .icons td {
+    position: relative;
+    
+    height: 145px;
+    width: 145px;
+    
+    -moz-border-top-right-radius: 8px;
+    -webkit-border-top-right-radius: 8px;
+    -khtml-border-top-right-radius: 8px;
+    border-top-right-radius: 8px;
+    
+    -moz-border-top-left-radius: 8px;
+    -webkit-border-top-left-radius: 8px;
+    -khtml-border-top-left-radius: 8px;
+    border-top-left-radius: 8px;
+    
+    opacity: 0.6;
+}
+
+.badge-table .icon {
+    position: absolute;
+    
+    top: 10px;
+    left: 11px;
+    
+    height: 125px;
+    width: 125px;
+    
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;
+    
+    opacity: 1.0;
+}
+
+.badge-table .icons .unlocked:hover:first-child .overlay:before { 
+    content: "Edit Level";
+}
+
+.badge-table .icons .unlocked:hover:first-child .overlay:hover { opacity: 0.9 }
+
+.badge-table .icons .unlocked:hover:first-child .overlay {
+    position: absolute;
+    
+    top: 100px;
+    
+    height: 25px;
+    width: 125px;
+    
+    background-color: #2c2c2c;
+    
+    color: #fff;
+    text-align: center;
+    font-family: Helvetica;
+    font-style: normal;
+    font-size: 18px;
+    
+    opacity: 0.7;
+    
+    cursor: pointer;
+}
+
+.badge-table .icons .locked:hover:first-child .overlay:hover { opacity: 0.9 }
+
+.badge-table .icons .locked:hover:first-child .overlay:before { 
+    content: "Unlock Level"; 
+}
+.badge-table .icons .locked:hover:first-child .overlay {
+    position: absolute;
+    
+    vertical-align: text-bottom;
+    
+    top: 100px;
+    
+    height: 25px;
+    width: 125px;
+    
+    background-color: #2c2c2c;
+    
+    color: #fff;
+    text-align: center;
+    font-family: Helvetica;
+    font-style: normal;
+    font-size: 18px;
+    
+    opacity: 0.7;
+    
+    cursor: pointer;
+}
+
+.user-overlay {
+    position: absolute;
+    
+    top: 100px;
+    left: 0;
+    
+    height: 25px;
+    width: 125px;
+    
+    opacity: 0.7;
+}
+
+.user-overlay:hover {
+    opacity: 1.0;
+}
+
+.badge-table .locked {
+    background-image: url('/res/img/placeholder-locked.png');
+}
+
+.badge-table .unlocked {
+    background-image: url('/res/img/placeholder-unlocked.png');
+}
+
+.badge-table .info-container {
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    border-radius: 8px;
+    
+    background-color: #2c2c2c;
+    box-shadow: 0 1px 16px #222;
+
+    opacity: 0.8;
+}
+
+.badge-table .info-table {
+    border: 0;
+    color: #fff;
+}
+
+.badge-table .info-table td:nth-child(odd) {
+    text-align: right;
+    width: 85px;
+}
+
+.badge-table .label,
+.badge-table .label {
+    font-family: arial;
+    font-size: 15px;
+    padding-right:10px;
+    color: #aaa;
+}
+
+.badge-table .content,
+.badge-table .content {
+    font-family: arial;
+    font-size: 13px;
+    color: #fff;
+}
+
+.badge-table .link-content {
+    font-weight: bold;
+}
+
+.badge-table .desc-content {
+    font-weight: bold;
+}
+
+.badge-table .header-level {
+    font-size: 16px;
+    margin-left: 10px;
+    color: #aaa;
+}

@@ -1,0 +1,74 @@
+## Inherit Rewrite Options
+RewriteOptions inherit
+
+## Set Options
+Options +FollowSymlinks
+Options All -Indexes
+
+## Turn on Rewrite Engine
+RewriteEngine on
+RewriteBase /
+
+## Clean admin URL
+RewriteRule ^admin$         /admin.php
+RewriteRule ^admin/$        /admin [R=301]
+
+## Clean user URLs
+RewriteRule ^user/(\w*)$       /user.php?user=$1
+RewriteRule ^user/(\w*)/$      /user/$1 [R=301]
+
+RewriteRule ^profile/(\w*)$    /profile.php?user=$1
+RewriteRule ^profile/(\w*)/$   /profile/$1 [R=301]
+
+## Clean API URLs
+RewriteRule ^api/status$            /api/login.php?action=status
+RewriteRule ^api/login$             /api/login.php?action=login
+RewriteRule ^api/logout$            /api/login.php?action=logout
+
+RewriteRule ^api/badge/list-all$    /api/badge.php?action=list-all
+RewriteRule ^api/badge/add$         /api/badge.php?action=add
+RewriteRule ^api/badge/edit$        /api/badge.php?action=edit
+RewriteRule ^api/badge/remove$      /api/badge.php?action=remove
+
+RewriteRule ^api/user/setting$      /api/user.php?action=setting
+RewriteRule ^api/user/progress$     /api/user.php?action=progress
+RewriteRule ^api/user/progression$  /api/user.php?action=progression
+RewriteRule ^api/user/(\w*)$        /api/user.php?action=progression&user=$1
+
+RewriteRule ^api/account/list-all$  /api/account.php?action=list-all
+RewriteRule ^api/account/add$       /api/account.php?action=add
+RewriteRule ^api/account/edit$      /api/account.php?action=edit
+RewriteRule ^api/account/remove$    /api/account.php?action=remove
+
+RewriteRule ^api/admin$             /admin.php
+RewriteRule ^api/cpanel$            /panel.php
+
+## Caching
+  ExpiresActive On
+  ExpiresDefault A0
+  
+  # Set up caching on media files for 1 week
+  <FilesMatch "\.(gif|jpg|jpeg|png|swf)$">
+    ExpiresDefault A604800
+    Header append Cache-Control "private"
+  </FilesMatch>
+  
+  # Set up 2 Hour caching on commonly updated files
+  <FilesMatch "\.(xml|txt|html|js|css)$">
+    ExpiresDefault A7200
+    Header append Cache-Control "private, proxy-revalidate"
+  </FilesMatch>
+  
+  # Force no caching for dynamic files
+  <FilesMatch "\.(php|cgi|pl|htm)$">
+    ExpiresActive Off
+    Header set Cache-Control "private, no-cache, no-store, proxy-revalidate, no-transform"
+    Header set Pragma "no-cache"
+  </FilesMatch>
+
+## Compression
+<IfModule mod_deflate.c>
+  <FilesMatch "\.(php|txt|html|js|css)$">
+    SetOutputFilter DEFLATE
+  </FilesMatch>
+</IfModule> 
