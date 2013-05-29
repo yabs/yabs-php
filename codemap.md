@@ -8,7 +8,7 @@ The API is used internally, the served pages are 100% HTML/JavaScript/CSS (With 
 
 I chose this method in order to soft-code the entire front-end, making the project more customizable
 
-One of the fallbacks to this method is the lack of noscript support. That will be added later.
+One of the fallbacks to this method is the lack of noscript support. That will be added later™.
 
 
 
@@ -65,7 +65,7 @@ http://badge_sys/api/admin/setting      Admin       Changes settings         [TO
 Login request
 ```
 Input
-    GET  http://badge_sys/api/login
+    URL  http://badge_sys/api/login
     POST
          username : {username}
          password : {password}
@@ -82,7 +82,9 @@ Output
 Logout request
 ```
 Input
-    GET http://badge_sys/api/logout
+    URL http://badge_sys/api/logout
+    POST
+        nonce : {CSRF nonce}
 
 Output
     JSON
