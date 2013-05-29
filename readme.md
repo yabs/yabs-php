@@ -9,7 +9,7 @@ The Badge system is not yet complete; the next part is the frontend admin panel 
 
 Requirements
 --------------
- - Apache server
+ - Apache or nginx
  - MySQL server
 
 Code map
@@ -20,7 +20,7 @@ Installation
 --------------
 Download the repo
 ```
-$ git clone {repo URL}
+$ git clone https://github.com/yabs/yabs-php.git
 $ cd badge_sys
 ```
 Then we have to configure everything.
@@ -66,10 +66,10 @@ FILE ./include/config/sql.php
 
     [...]
 
-    define( __NAMESPACE__ . '\DB_HOST', '{database host}'  );
-    define( __NAMESPACE__ . '\DB_NAME', '{database name}'  );
-    define( __NAMESPACE__ . '\DB_USER', '{database user}'  );
-    define( __NAMESPACE__ . '\DB_PASS', '{user's password}');
+    define('DB_HOST', '{database host}'  );
+    define('DB_NAME', '{database name}'  );
+    define('DB_USER', '{database user}'  );
+    define('DB_PASS', '{user's password}');
     
     [...]
 ```
@@ -86,37 +86,39 @@ FILE {apache virtual host file}
     <VirtualHost *:80>
         ServerAdmin admin@localhost
         
-        DocumentRoot /path/to/install/www
-        <Directory /path/to/install/www/>
+        DocumentRoot /path/to/yabs/www
+        <Directory /path/to/yabs/www/>
             Options FollowSymLinks MultiViews -Indexes
             AllowOverride all
             Order allow,deny
             allow from all
         </Directory>
         
-        ErrorLog ${APACHE_LOG_DIR}/badges.err
+        ErrorLog ${APACHE_LOG_DIR}/yabs.err
         
         LogLevel warn
         
-        CustomLog ${APACHE_LOG_DIR}/badges.log combined
+        CustomLog ${APACHE_LOG_DIR}/yabs.log combined
     </VirtualHost>
     
     [...]
 ```
 
-Replace the ```/path/to/install/``` correctly.
+Replace the ```/path/to/yabs/``` correctly.
 
 It isn't necessary to use these exact settings,
 but it is important that ```DocumentRoot``` is set correctly,
 and ```AllowOverride``` is set to ```all```
 
 
+If you are running nginx, modify ```nginx.conf``` as needed, 
+and move to ```/etc/nginx/sites-enabled/```. 
+Remove ```.htaccess``` from ```www/```
+
 
 Installation is complete!
 ------------
 
 Next up is to add badges to your system via the Admin Panel.
-
-The Admin Panel should be available within the week.
 
 Feel free to fork the project, contributions are appreciated.
