@@ -12,48 +12,48 @@
     
     class Config {
         // Variable for caching config
-		private static $config;
-		
+        private static $config;
+    		
         // Function to get individual setting
-		public static function setting($setting) {
+    	public static function setting($setting) {
             // Check if we have a cache of the config
-			if (!self::$config) {
+    		if (!self::$config) {
                 // If we don't, get a fresh version
-				self::fetch_all();
-			}
+                self::fetch_all();
+            }
             
-			return self::$config[$setting];
-		}
+            return self::$config[$setting];
+        }
         
         // Function to fetch config from SQL and cache it
         public static function fetch_all() {
-    		// Check if we have a cache
+    	    // Check if we have a cache
             if (!self::$config) {
                 // Open SQL Connnection
-				$conn = new Connection();
-				
+                $conn = new Connection();
+                
                 // Prepare SQL query for getting settings
-				$stmt = "SELECT `setting`, `value`"
+                $stmt = "SELECT `setting`, `value`"
                        ." FROM `Config`";
-				$query = $conn->prepare($stmt); // TODO `or [...]`
+                $query = $conn->prepare($stmt); // TODO `or [...]`
 				
                 // Execute the query
-				$query->execute();
-				$query->bind_result($setting, $value);
+                $query->execute();
+                $query->bind_result($setting, $value);
                 
                 // Loop through result
-				while ($query->fetch()) {
-					self::$config[$setting] = $value;
-				}
+                while ($query->fetch()) {
+                    self::$config[$setting] = $value;
+                }
 				
                 // Close SQL Connections
-				$query->close();
-				$conn->close();
+                $query->close();
+                $conn->close();
 			}
             
             return self::$config;
         }
-	}
+    }
     
     
 ?>
