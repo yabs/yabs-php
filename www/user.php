@@ -3,6 +3,8 @@
      * 
      *  Shows the progress for ?user
      */
+     
+    /*!! No XSS protection, whoever wrote this was a dork !!*/
     
     // Dependencies
     require_once(dirname(__FILE__) . "/../include/class/connection.php");
