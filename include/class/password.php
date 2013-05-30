@@ -19,7 +19,7 @@
                     ."ASDFGHJKLZXCVBNM";
             $string = "";
             
-            // Add 10 random characters to the string
+            // Append a random character to the string
             for ($i = 0; $i < $length; $i++) {
                 $string .= $chars[rand(0, strlen($chars) - 1)];
             }
