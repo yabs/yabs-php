@@ -13,11 +13,11 @@
     class Config {
         // Variable for caching config
         private static $config;
-    		
+        	
         // Function to get individual setting
-    	public static function setting($setting) {
+        public static function setting($setting) {
             // Check if we have a cache of the config
-    		if (!self::$config) {
+            if (!self::$config) {
                 // If we don't, get a fresh version
                 self::fetch_all();
             }
@@ -27,7 +27,7 @@
         
         // Function to fetch config from SQL and cache it
         public static function fetch_all() {
-    	    // Check if we have a cache
+            // Check if we have a cache
             if (!self::$config) {
                 // Open SQL Connnection
                 $conn = new Connection();
